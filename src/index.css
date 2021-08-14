@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url(https://lift-ui.netlify.app/lift.css);
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  margin: 6.5rem auto;
+  width: fit-content;
+}
+
+.centered {
+  width: 100%;
+  margin: auto;
+}
+
+.btn-no-hover:hover {
+  transform: scale(1);
+}
+
+.btn-header{
+  padding: 0.5rem;
+  margin: 0.1rem 0rem;
+}
+
+.flex-dis {
+  display: flex;
+}
+
+.thumbnail{
+  margin: 1rem;
+  padding: 0.5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.toolbar{
+  border: 0.2rem solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
