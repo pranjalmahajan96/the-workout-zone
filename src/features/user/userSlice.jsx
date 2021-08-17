@@ -193,6 +193,7 @@ export const signupBtnClicked = createAsyncThunk(
       playlists: []
     },
     loginStatus: false,
+    userLoading: "not-loading",
     loading: true,
     isError: false,
     errorMsg: "",
@@ -216,6 +217,7 @@ export const signupBtnClicked = createAsyncThunk(
             playlists: []
            };
             state.loginStatus = false;
+            state.userLoading = "not-loading";
             state.isError = false;
             state.errorMessage = "";
             state.loading = false;
@@ -224,10 +226,10 @@ export const signupBtnClicked = createAsyncThunk(
     },
     extraReducers:{
         [signupBtnClicked.pending]: (state) => {
-            state.loading = true;
+            state.userLoading = "loading";
           },
           [signupBtnClicked.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.userLoading = "fulfilled";
             if (action.payload.success) {
               state.loginStatus = true;
               state.user = action.payload.user;
@@ -236,17 +238,17 @@ export const signupBtnClicked = createAsyncThunk(
             }
           },
           [signupBtnClicked.rejected]: (state, action) => {
-            state.loading = false;
+            state.userLoading = "error";
             state.isError = true;
             state.errorMsg = action.error.message;
           },
           
 
           [loginBtnClicked.pending]: (state) => {
-            state.loading = true;
+            state.userLoading = "loading";
           },
           [loginBtnClicked.fulfilled]: (state, action) => {
-            state.loading = false;
+            state.userLoading = "fulfilled";
             if (action.payload.success) {
               state.loginStatus = true;
               state.user = action.payload.user;
@@ -256,7 +258,7 @@ export const signupBtnClicked = createAsyncThunk(
             }
           },
           [loginBtnClicked.rejected]: (state, action) => {
-            state.loading = false;
+            state.userLoading = "error";
             state.isError = true;
             state.errorMsg = action.error.message;
           },
