@@ -6,8 +6,8 @@ import { useState } from "react";
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const { userLoading } = useSelector(state => state.user);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test12@gmail.com");
+  const [password, setPassword] = useState("test12");
   const [error, setError] = useState("");
 
   const loginHandler = (email, password) => {
